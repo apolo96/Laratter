@@ -6,12 +6,12 @@
             <h1>{{$user->username}}</h1>
             <h3>
                 <a href="{{route('follows',['username'=>$user->username])}}">
-                    Siguiendo: <span class="badge badge-default">{{$user->follows->count()}}</span>
+                        Siguiendo: <span class="badge badge-secondary">{{$user->follows->count()}}</span>
                 </a>
             </h3>
             <h3>
                 <a href="{{route('followers',['username'=>$user->username])}}">
-                    Seguidores: <span class="badge badge-default">{{$user->followers->count()}}</span>
+                    Seguidores: <span class="badge badge-secondary">{{$user->followers->count()}}</span>
                 </a>
             </h3>
             @if(Auth::check())
