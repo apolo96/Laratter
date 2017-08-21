@@ -32,4 +32,8 @@ class MessagesController extends Controller
         $messages->load('user');
         return view('messages.search',['messages'=>$messages]);
     }
+
+    public function showJsonResponse(Message $message){
+        return $message->response;
+    }
 }

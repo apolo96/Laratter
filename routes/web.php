@@ -41,3 +41,5 @@ Route::get('/user/{username}/follows','UsersController@follows')->name('follows'
 Route::get('/user/{username}/followers','UsersController@followers')->name('followers');
 
 Route::get('/messages/search','MessagesController@search');
+
+Route::get('/api/message/{message}','MessagesController@showJsonResponse');

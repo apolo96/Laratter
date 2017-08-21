@@ -19,4 +19,9 @@ class Message extends Model
         $this->load('user');
         return $this->toArray();
     }
+
+    public function response()
+    {
+        return $this->hasMany(Reponse::class)->latest();
+    }
 }
