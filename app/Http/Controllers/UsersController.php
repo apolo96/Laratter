@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Conversation;
+use App\Notifications\UserFollow;
 use App\PrivateMessage;
 use App\User;
 use Illuminate\Http\Request;
@@ -29,6 +30,7 @@ class UsersController extends Controller
         $me = $request->user();
         //if(!isset($me)) return redirect()->route('login');
         $me->follows()->attach($user);
+        $user->notify(new UserFollow($me));
         return redirect()->action( 'UsersController@showMessages',['username'=>$username])
             ->withSuccess('Siguiendo');
     }
