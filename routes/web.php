@@ -28,6 +28,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::post('/user/{username}/unfollow','UsersController@unfollow')->name('unfollow');
     Route::post('/{username}/dms','UsersController@sendPrivateMessage')->name('sendPrivateMessage');
     Route::get('/conversation/{conversation}','UsersController@showMesssage')->name('showMessage');
+    Route::get('/api/notifications','UsersController@notifications');
 });
 
 Route::get('/auth/facebook','SocialiteAuthController@facebook')->name('facebook');

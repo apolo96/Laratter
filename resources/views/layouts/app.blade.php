@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laratter') }}</title>
 
     <!-- Styles -->
 
@@ -38,15 +38,21 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Registrarse</a></li>
                 @else
                     <li class="nav-item dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }}<span class="caret"></span>
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Notificaciones
                         </a>
-
-                        <div class="dropdown-menu" role="menu">
-
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                        <notifications :user="{{ Auth::user()->id }}"></notifications>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            {{ Auth::user()->name }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="" >
+                            <a class="nav-link" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
-    document.getElementById('logout-form').submit();">
+                                document.getElementById('logout-form').submit();">
                                 Salir
                             </a>
 
